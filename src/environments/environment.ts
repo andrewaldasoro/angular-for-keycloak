@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   keycloak: {
     realm: 'DefaultTenant',
-    clientId: 'emsapp',
+    clientId: 'ems-ui',
   },
 };
 

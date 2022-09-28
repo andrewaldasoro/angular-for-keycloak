@@ -6,12 +6,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: "http://10.120.0.221:8080/auth",
+        url: 'http://localhost:8080/',
         realm: environment.keycloak.realm,
         clientId: environment.keycloak.clientId,
       },
@@ -20,13 +21,18 @@ function initializeKeycloak(keycloak: KeycloakService) {
         silentCheckSsoRedirectUri:
           window.location.origin + '/assets/silent-check-sso.html',
       },
-      bearerExcludedUrls: ["/assets"]
+      bearerExcludedUrls: ['/assets'],
     });
 }
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, KeycloakAngularModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    KeycloakAngularModule,
+    AppRoutingModule,
+  ],
   providers: [
     {
       provide: APP_INITIALIZER,
