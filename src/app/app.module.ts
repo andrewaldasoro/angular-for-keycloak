@@ -12,7 +12,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://localhost/auth/',
+        url: '/auth',
         realm: environment.keycloak.realm,
         clientId: environment.keycloak.clientId,
       },
