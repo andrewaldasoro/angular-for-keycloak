@@ -14,19 +14,19 @@ export class HomeComponent {
   ) {}
 
   onRequestToBackend() {
-    this.http.get<any>('http://localhost:3000/service/public').subscribe((res) => {
+    this.http.get<any>('http://localhost/diesel/service/public').subscribe((res) => {
       console.log(res);
     });
   }
 
   onRequestToBackendUserRole() {
-    this.http.get<any>('http://localhost:3000/service/secured').subscribe((res) => {
+    this.http.get<any>('http://localhost/diesel/service/secured').subscribe((res) => {
       console.log(res);
     });
   }
 
   onRequestToBackendAdminRole() {
-    this.http.get<any>('http://localhost:3000/service/admin').subscribe((res) => {
+    this.http.get<any>('http://localhost/diesel/service/admin').subscribe((res) => {
       console.log(res);
     });
   }
